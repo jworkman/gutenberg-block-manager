@@ -16,7 +16,7 @@ class Factory
   }
   public static function getFullyQualifiedClassName(string $classname): string
   {
-    if (strstr($class, __NAMESPACE__) === false) {
+    if (strstr($classname, __NAMESPACE__) === false) {
       return sprintf("\\%s\\%s", __NAMESPACE__, $classname);
     }
     return $classname;
