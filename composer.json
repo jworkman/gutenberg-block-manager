@@ -1,0 +1,14 @@
+{
+    "name": "jworkman/gutenberg-block-manager",
+    "description": "Allows RESTful ACF blocks to be accessed from Gutenberg",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Justin Workman",
+            "email": "jworkman@pushhere.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
