@@ -16,14 +16,16 @@ class Gutenberg extends Factory
     }
     foreach ($this->_model->getAllCustomComponents() as $ccomponent) {
       $meta = \get_post_meta($ccomponent->ID);
-      $keywords = array_map('trim', explode(',', $meta['keywords']));
+      $meta_keywords = (!isset($meta['keywords'])) ? "" : $meta['keywords'];
+      $meta_icon = (!isset($meta['icon'])) ? "" : $meta['icon'];
+      $keywords = array_map('trim', explode(',', $meta_keywords));
 			\acf_register_block_type([
 				'name' => $ccomponent->post_name,
 				'title' => $ccomponent->post_title,
 				'description' => $ccomponent->post_content,
 				'render_callback' => [$this, 'renderComponent'],
 				'category' => 'custom',
-				'icon' => (($meta["icon"]) ? $meta["icon"] : 'align-wide'),
+				'icon' => (($meta_icon) ? $meta_icon : 'align-wide'),
 				'keywords' => $keywords
 			]);
 		}
